@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 class Coin:
     def __init__(self, screen_width, screen_height):
@@ -41,7 +42,7 @@ class Coin:
         self.update()
         
         # Efecto de pulsación
-        pulse_offset = int(3 * abs(pygame.math.sin(self.pulse_timer * 0.1)))
+        pulse_offset = int(3 * abs(math.sin(self.pulse_timer * 0.1)))
         
         # Dibujar círculo dorado con borde
         center_x = self.x + self.width // 2
@@ -61,8 +62,8 @@ class Coin:
         pygame.draw.circle(screen, self.color, (center_x, center_y), radius)
         
         # Brillo dinámico que se mueve
-        shine_x = center_x + int(3 * pygame.math.cos(self.rotation * 0.1))
-        shine_y = center_y + int(3 * pygame.math.sin(self.rotation * 0.1))
+        shine_x = center_x + int(3 * math.cos(self.rotation * 0.1))
+        shine_y = center_y + int(3 * math.sin(self.rotation * 0.1))
         pygame.draw.circle(screen, (255, 255, 255), (shine_x, shine_y), 2)
         
         # Símbolo de moneda opcional

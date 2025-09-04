@@ -1,4 +1,5 @@
 import pygame
+import math
 
 class Player:
     def __init__(self, x, y, width=50, height=50):
@@ -39,7 +40,7 @@ class Player:
     
     def draw(self, screen):
         # Efecto de "respiración" para hacer el zorro más dinámico
-        size_offset = int(2 * abs(pygame.math.cos(self.animation_timer * 0.1)))
+        size_offset = int(2 * abs(math.cos(self.animation_timer * 0.1)))
         draw_rect = pygame.Rect(self.x - size_offset//2, self.y - size_offset//2, 
                                self.width + size_offset, self.height + size_offset)
         
